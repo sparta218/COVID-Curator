@@ -9,6 +9,9 @@ TupleTime = (pref_time, ':00')
 TupleTime = ''.join(TupleTime)
 state = input('What state are you in?')
 
+if ' ' in state:
+    state = state.replace(' ', '-')
+
 url = 'https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/state/' + state
 page = requests.get(url)
 soup = BeautifulSoup(page.content, 'html.parser')
